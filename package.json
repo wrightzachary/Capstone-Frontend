@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "react-router-dom": "^5.2.0",
+    "reactjs-navbar": "^1.0.2"
+  }
+}
