@@ -4,10 +4,12 @@ import './home.css';
 const Home = () => {
   return ( 
       <React.Fragment>
-          <div className="home">
-            <h1>;IGY6</h1>
-            <h1>You Are Not Alone</h1>
-          </div>
+            <div className="home">
+                <p>;IGY6</p>
+                <h3>You Are Not Alone</h3>
+              <h3>Welcome, here you can find resources to help prevent veteran suicide,
+                find resources to assist mental helath, and connect with other veterans.</h3> 
+            </div>
       </React.Fragment>
     
    );

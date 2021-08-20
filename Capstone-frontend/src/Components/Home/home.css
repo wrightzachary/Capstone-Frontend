@@ -1,5 +1,9 @@
 .home {
+    font-size: 80px;
     text-align: center;
     margin: 10%;
-    text-shadow: 2px 2px;
+}
+
+.homeBody {
+    text-align: center;
 }

@@ -3,6 +3,7 @@ import './App.css';
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 import NavigationBar from './Navigation/navigation';
 import Home from './Home/home';
+import Footer from './Footer/footer';
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
           <Route path="/" exact render={props => <Home {...props} />} /> 
         </Switch>
       </Router>
+      <Footer />
   </React.Fragment>
   
   );
