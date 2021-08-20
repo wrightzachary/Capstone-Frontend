@@ -1,6 +1,7 @@
 {
   "dependencies": {
     "react-router-dom": "^5.2.0",
+    "react-split-button": "^1.0.1",
     "reactjs-navbar": "^1.0.2"
   }
 }

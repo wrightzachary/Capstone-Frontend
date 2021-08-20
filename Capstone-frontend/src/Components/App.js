@@ -5,6 +5,16 @@ import NavigationBar from './Navigation/navigation';
 import Home from './Home/home';
 import Footer from './Footer/footer';
 import Helpline from './Helpline/helpline';
+import MentalIllness from './MentalIllness/mentalIllnessHome';
+import Anxiety from './MentalIllness/anxiety';
+import Bipolar from './MentalIllness/bipolar';
+import Depression from './MentalIllness/depression';
+import TBI from './MentalIllness/tbi';
+import MilitarySexualTrauma from './MentalIllness/mst';
+import PTSD from './MentalIllness/ptsd';
+import Schizophernia from './MentalIllness/schizophrenia';
+import SubtanceAbuse from './MentalIllness/substanceAbuse';
+
 
 function App() {
   return (
@@ -15,6 +25,15 @@ function App() {
         <Switch>
         <Route path="/" exact render={props => <Home {...props} />} /> 
         <Route path="/helpline" exact render={props => <Helpline {...props} />} /> 
+        <Route path="/mentalIllnessHome" exact render={props => <MentalIllness {...props} />} /> 
+        <Route path="/anxiety" exact render={props => <Anxiety {...props} />} /> 
+        <Route path="/bipolar" exact render={props => <Bipolar {...props} />} /> 
+        <Route path="/depression" exact render={props => <Depression {...props} />} /> 
+        <Route path="/tbi" exact render={props => <TBI {...props} />} /> 
+        <Route path="/mst" exact render={props => <MilitarySexualTrauma {...props} />} /> 
+        <Route path="/ptsd" exact render={props => <PTSD {...props} />} /> 
+        <Route path="/schizophernia" exact render={props => <Schizophernia {...props} />} /> 
+        <Route path="/substanceAbuse" exact render={props => <SubtanceAbuse {...props} />} /> 
         </Switch>
       </Router>
       <Footer />
