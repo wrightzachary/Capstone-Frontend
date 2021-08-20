@@ -14,6 +14,7 @@ const NavigationBar = () => {
                     <Nav.Item><Nav.Link href="/" >Home</Nav.Link></Nav.Item>
                     <Nav.Item><Nav.Link href="/helpline" >Crisis Helpline</Nav.Link></Nav.Item>
                     <Nav.Item><Nav.Link href="/statistics">Statistics</Nav.Link></Nav.Item>
+                    <Nav.Item><Nav.Link href="/findFacility">Find A VA Facility</Nav.Link></Nav.Item>
                     <NavDropdown title="Resources" id="basic-nav-dropdown">
                         <NavDropdown.Item href="/ptsd">Combatting PTSD</NavDropdown.Item>
                         <NavDropdown.Divider />
