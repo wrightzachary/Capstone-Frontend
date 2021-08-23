@@ -13,7 +13,6 @@ import TBI from './MentalIllness/tbi';
 import MilitarySexualTrauma from './MentalIllness/mst';
 import PTSD from './MentalIllness/ptsd';
 import Schizophernia from './MentalIllness/schizophrenia';
-import SubtanceAbuse from './MentalIllness/substanceAbuse';
 
 
 function App() {
@@ -33,7 +32,6 @@ function App() {
         <Route path="/mst" exact render={props => <MilitarySexualTrauma {...props} />} /> 
         <Route path="/ptsd" exact render={props => <PTSD {...props} />} /> 
         <Route path="/schizophernia" exact render={props => <Schizophernia {...props} />} /> 
-        <Route path="/substanceAbuse" exact render={props => <SubtanceAbuse {...props} />} /> 
         </Switch>
       </Router>
       <Footer />

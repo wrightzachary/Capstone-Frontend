@@ -14,7 +14,6 @@ const MentalIllenesDropdown = () => {
                 <Dropdown.Item href="/mst">Military Sexual Trauma</Dropdown.Item>
                 <Dropdown.Item href="/ptsd">PTSD</Dropdown.Item>
                 <Dropdown.Item href="/schizophernia">Schizophrenia</Dropdown.Item>
-                <Dropdown.Item href="/substanceAbuse">Substance Abuse</Dropdown.Item>
             </DropdownButton>
         </React.Fragment>
     );
