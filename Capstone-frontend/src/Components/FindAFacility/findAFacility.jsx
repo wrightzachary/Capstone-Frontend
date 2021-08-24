@@ -4,6 +4,7 @@ import PlacesAutocomplete, {
   geocodeByAddress,
   getLatLng,
 } from 'react-places-autocomplete';
+import './findAFacility.css';
 
 const style = {
     width: '40%',
@@ -57,11 +58,11 @@ export class MapContainer extends Component {
             <div>
               <input
                 {...getInputProps({
-                  placeholder: 'Find A VA...',
-                  className: 'location-search-input',
+                  placeholder: 'Search For A VA Facility...',
+                  className: 'search',
                 })}
               />
-              <div className="autocomplete-dropdown-container">
+              <div className="search">
                 {loading && <div>Loading...</div>}
                 {suggestions.map(suggestion => {
                   const className = suggestion.active

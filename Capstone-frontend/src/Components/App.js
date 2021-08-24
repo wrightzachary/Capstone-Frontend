@@ -16,7 +16,7 @@ import Schizophernia from './MentalIllness/schizophrenia';
 import Signs from './Signs/signs';
 import HelpingVeterans from './HelpingVeterans/helpingVeterans';
 import FindAFacility from './FindAFacility/findAFacility';
-
+import Statistics from './Statistics/statistics';
 
 function App() {
   return (
@@ -38,6 +38,7 @@ function App() {
         <Route path="/signs" exact render={props => <Signs {...props} />} /> 
         <Route path="/helpingYourVeteran" exact render={props => <HelpingVeterans {...props} />} /> 
         <Route path="/findFacility" exact render={props => <FindAFacility {...props} />} /> 
+        <Route path="/statistics" exact render={props => <Statistics {...props} />} /> 
         </Switch>
       </Router>
       <Footer />
