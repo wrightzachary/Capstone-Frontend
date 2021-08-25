@@ -1,10 +1,17 @@
 import React from 'react';
+import ConnectNavigationBar from './connectNavBar';
 
 const ConnectHome = () => {
     return ( 
         <React.Fragment>
-            <h1>Welcometo Connected Veterans!</h1>
+            <ConnectNavigationBar />
+            
+            <div className="home">
+                <h1>Welcometo Connected Veterans!</h1>
+            </div>
         </React.Fragment>
+        
+            
      );
 }
  

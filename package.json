@@ -4,9 +4,12 @@
     "axios": "^0.21.1",
     "google-maps-react": "^2.0.6",
     "react-google-maps": "^9.4.5",
+    "react-hook-form": "^7.13.0",
     "react-places-autocomplete": "^7.3.0",
     "react-router-dom": "^5.2.0",
+    "react-sidenav": "^4.0.6",
     "react-split-button": "^1.0.1",
-    "reactjs-navbar": "^1.0.2"
+    "reactjs-navbar": "^1.0.2",
+    "rsuite": "^4.10.2"
   }
 }

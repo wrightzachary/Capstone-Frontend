@@ -41,7 +41,7 @@ function App() {
         <Route path="/helpingYourVeteran" exact render={props => <HelpingVeterans {...props} />} /> 
         <Route path="/findFacility" exact render={props => <FindAFacility {...props} />} /> 
         <Route path="/statistics" exact render={props => <Statistics {...props} />} /> 
-        <Route path="/connect" exact render={props => <ConnectHome {...props} />} /> 
+        <Route path="/connect" exact render={props => <ConnectHome {...props} />}  /> 
         </Switch>
       </Router>
       <Footer />
