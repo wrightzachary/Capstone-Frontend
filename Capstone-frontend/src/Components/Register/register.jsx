@@ -28,6 +28,8 @@ const Register = () => {
         let userData = eachEntry;
         let response = await axios.post("https://localhost:44394/api/authentication", userData);
         console.log(response)
+        window.location.href="/login"
+
     }
     return (
         
