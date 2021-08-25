@@ -1,4 +1,4 @@
-import React, { useState, useEffect }  from 'react';
+import React from 'react';
 import './App.css';
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 import NavigationBar from './Navigation/navigation';
@@ -19,7 +19,7 @@ import FindAFacility from './FindAFacility/findAFacility';
 import Statistics from './Statistics/statistics';
 import ConnectHome from './Connect/connectHome';
 import LoginForm from './Login/login';
-import jwtDecode from "jwt-decode";
+import Register from './Register/register';
 
 
 function App() {
@@ -30,22 +30,23 @@ function App() {
       <NavigationBar />
       <Router>
         <Switch>
-        <Route path="/" exact render={props => <Home {...props} />} /> 
-        <Route path="/helpline" exact render={props => <Helpline {...props} />} /> 
-        <Route path="/mentalIllnessHome" exact render={props => <MentalIllness {...props} />} /> 
-        <Route path="/anxiety" exact render={props => <Anxiety {...props} />} /> 
-        <Route path="/bipolar" exact render={props => <Bipolar {...props} />} /> 
-        <Route path="/depression" exact render={props => <Depression {...props} />} /> 
-        <Route path="/tbi" exact render={props => <TBI {...props} />} /> 
-        <Route path="/mst" exact render={props => <MilitarySexualTrauma {...props} />} /> 
-        <Route path="/ptsd" exact render={props => <PTSD {...props} />} /> 
-        <Route path="/schizophernia" exact render={props => <Schizophernia {...props} />} /> 
-        <Route path="/signs" exact render={props => <Signs {...props} />} /> 
-        <Route path="/helpingYourVeteran" exact render={props => <HelpingVeterans {...props} />} /> 
-        <Route path="/findFacility" exact render={props => <FindAFacility {...props} />} /> 
-        <Route path="/statistics" exact render={props => <Statistics {...props} />} /> 
-        <Route path="/connect" exact render={props => <ConnectHome {...props} />}  /> 
-        <Route path="/Login" exact render={props => <LoginForm {...props} />} />
+          <Route path="/" exact render={props => <Home {...props} />} /> 
+          <Route path="/helpline" exact render={props => <Helpline {...props} />} /> 
+          <Route path="/mentalIllnessHome" exact render={props => <MentalIllness {...props} />} /> 
+          <Route path="/anxiety" exact render={props => <Anxiety {...props} />} /> 
+          <Route path="/bipolar" exact render={props => <Bipolar {...props} />} /> 
+          <Route path="/depression" exact render={props => <Depression {...props} />} /> 
+          <Route path="/tbi" exact render={props => <TBI {...props} />} /> 
+          <Route path="/mst" exact render={props => <MilitarySexualTrauma {...props} />} /> 
+          <Route path="/ptsd" exact render={props => <PTSD {...props} />} /> 
+          <Route path="/schizophernia" exact render={props => <Schizophernia {...props} />} /> 
+          <Route path="/signs" exact render={props => <Signs {...props} />} /> 
+          <Route path="/helpingYourVeteran" exact render={props => <HelpingVeterans {...props} />} /> 
+          <Route path="/findFacility" exact render={props => <FindAFacility {...props} />} /> 
+          <Route path="/statistics" exact render={props => <Statistics {...props} />} /> 
+          <Route path="/connect" exact render={props => <ConnectHome {...props} />}  /> 
+          <Route path="/Login" exact render={props => <LoginForm {...props} />} />
+          <Route path="/register" exact render={props => <Register {...props} />} />
         </Switch>
       </Router>
       <Footer />
