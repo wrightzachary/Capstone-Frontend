@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState, useEffect}  from 'react';
 import './App.css';
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 import NavigationBar from './Navigation/navigation';
@@ -20,9 +20,26 @@ import Statistics from './Statistics/statistics';
 import ConnectHome from './Connect/connectHome';
 import LoginForm from './Login/login';
 import Register from './Register/register';
-
+import jwtDecode from 'jwt-decode';
 
 function App() {
+  const [currentUser, setCurrentUser] = useState();
+  const [token, setToken] = useState();
+
+  useEffect( () =>{
+    const jwt = localStorage.getItem('token');
+    setToken(jwt)
+    try{
+      const user = jwtDecode(jwt);
+      setCurrentUser({user})
+    }
+    catch {}
+  }, [])
+
+  const setUserToken = (token) => {
+    localStorage.setItem('token', token);
+    setToken(token)
+  }
 
   return (
 
@@ -45,7 +62,7 @@ function App() {
           <Route path="/findFacility" exact render={props => <FindAFacility {...props} />} /> 
           <Route path="/statistics" exact render={props => <Statistics {...props} />} /> 
           <Route path="/connect" exact render={props => <ConnectHome {...props} />}  /> 
-          <Route path="/Login" exact render={props => <LoginForm {...props} />} />
+          <Route path="/Login"  exact render={props => <LoginForm {...props} setUserToken={setUserToken}  />} />
           <Route path="/register" exact render={props => <Register {...props} />} />
         </Switch>
       </Router>
