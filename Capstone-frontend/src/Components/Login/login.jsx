@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { Col, Container, Row, Button } from 'react-bootstrap';
+import {Link} from 'react-router-dom';
 
 
 const LoginForm = (props) => {
@@ -41,7 +42,11 @@ const LoginForm = (props) => {
                       <form onSubmit={handleSubmit}>
                       <input name="username" placeholder="Username..." onChange={handleChange}></input>
                       <input  name="password" placeholder="Password..." onChange={handleChange}></input>
-                      <button>Login</button>
+                      <button>Login</button> 
+                      <Link to="/register">
+                      <button href="/register">Register</button>
+                      </Link>
+                     
                       </form>
                       </div>
                   </Col>

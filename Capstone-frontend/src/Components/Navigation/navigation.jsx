@@ -24,7 +24,7 @@ const NavigationBar = () => {
                     </NavDropdown>
                     </Nav>
                     <Nav>
-                    <Nav.Item><Nav.Link href="/connect">Connect</Nav.Link></Nav.Item>
+                    <Nav.Item><Nav.Link href="/login">Connect</Nav.Link></Nav.Item>
                 </Nav>
                 </Navbar.Collapse>
         </Navbar>
