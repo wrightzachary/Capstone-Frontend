@@ -23,8 +23,8 @@ import { Button, Offcanvas, Nav } from 'react-bootstrap';
           <Nav defaultActiveKey="/home" className="flex-column">
             <Nav.Link href="/groups">Groups</Nav.Link>
             <Nav.Link href="/topics">Topics</Nav.Link>
+            <Nav.Link href="/feed">Feed</Nav.Link>
             <Nav.Link href="/friends">Friends</Nav.Link>
-
           </Nav>
         </Offcanvas.Body>
       </Offcanvas>
