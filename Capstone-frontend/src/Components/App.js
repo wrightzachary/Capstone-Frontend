@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect }  from 'react';
 import './App.css';
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 import NavigationBar from './Navigation/navigation';
@@ -18,9 +18,12 @@ import HelpingVeterans from './HelpingVeterans/helpingVeterans';
 import FindAFacility from './FindAFacility/findAFacility';
 import Statistics from './Statistics/statistics';
 import ConnectHome from './Connect/connectHome';
+import LoginForm from './Login/login';
+import jwtDecode from "jwt-decode";
 
 
 function App() {
+
   return (
 
     <React.Fragment>
@@ -42,6 +45,7 @@ function App() {
         <Route path="/findFacility" exact render={props => <FindAFacility {...props} />} /> 
         <Route path="/statistics" exact render={props => <Statistics {...props} />} /> 
         <Route path="/connect" exact render={props => <ConnectHome {...props} />}  /> 
+        <Route path="/Login" exact render={props => <LoginForm {...props} />} />
         </Switch>
       </Router>
       <Footer />
