@@ -23,16 +23,19 @@ import LoginForm from './Login/login';
 import Register from './Register/register';
 import jwtDecode from 'jwt-decode';
 import ShowAllGroups from './Groups/groups';
+import ShowAllTopics from './Topics/topics';
 
 function App() {
   const [currentUser, setCurrentUser] = useState();
   const [allGroups, setAllGroups] =useState([]);
+  const [allTopics, setAllTopics] =useState([]);
   const [token, setToken] = useState();
 
   useEffect( () =>{
     const jwt = localStorage.getItem('token');
     setToken(jwt)
     getAllGroups();
+    getAllTopics();
     try{
       const user = jwtDecode(jwt);
       setCurrentUser({user})
@@ -49,6 +52,15 @@ function App() {
     let response = await axios.get("https://localhost:44394/api/group")
     if(response.data.length !== 0){
       setAllGroups(response.data)
+      console.log(response.data)
+    }
+    
+  }
+
+  const getAllTopics = async () => {
+    let response = await axios.get("https://localhost:44394/api/topic")
+    if(response.data.length !== 0){
+      setAllTopics(response.data)
       console.log(response.data)
     }
     
@@ -77,6 +89,7 @@ function App() {
           <Route path="/Login"  exact render={props => <LoginForm {...props} setUserToken={setUserToken}  />} />
           <Route path="/register" exact render={props => <Register {...props} />} />
           <Route path="/groups"  render={props => <ShowAllGroups {...props} allGroups={allGroups}/>} /> 
+          <Route path="/topics"  render={props => <ShowAllTopics {...props} allTopics={allTopics}/>} /> 
         </Switch>
       </Router>
       <Footer />
