@@ -1,4 +1,5 @@
 import React, {useState, useEffect}  from 'react';
+import axios from 'axios';
 import './App.css';
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 import NavigationBar from './Navigation/navigation';
@@ -21,14 +22,17 @@ import ConnectHome from './Connect/connectHome';
 import LoginForm from './Login/login';
 import Register from './Register/register';
 import jwtDecode from 'jwt-decode';
+import ShowAllGroups from './Groups/groups';
 
 function App() {
   const [currentUser, setCurrentUser] = useState();
+  const [allGroups, setAllGroups] =useState([]);
   const [token, setToken] = useState();
 
   useEffect( () =>{
     const jwt = localStorage.getItem('token');
     setToken(jwt)
+    getAllGroups();
     try{
       const user = jwtDecode(jwt);
       setCurrentUser({user})
@@ -41,8 +45,16 @@ function App() {
     setToken(token)
   }
 
-  return (
+  const getAllGroups = async () => {
+    let response = await axios.get("https://localhost:44394/api/group")
+    if(response.data.length !== 0){
+      setAllGroups(response.data)
+      console.log(response.data)
+    }
+    
+  }
 
+  return (
     <React.Fragment>
       <NavigationBar />
       <Router>
@@ -64,6 +76,7 @@ function App() {
           <Route path="/connect" exact render={props => <ConnectHome {...props} />}  /> 
           <Route path="/Login"  exact render={props => <LoginForm {...props} setUserToken={setUserToken}  />} />
           <Route path="/register" exact render={props => <Register {...props} />} />
+          <Route path="/groups"  render={props => <ShowAllGroups {...props} allGroups={allGroups}/>} /> 
         </Switch>
       </Router>
       <Footer />
