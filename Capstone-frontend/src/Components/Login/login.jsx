@@ -35,22 +35,21 @@ const LoginForm = (props) => {
     return ( 
       <Container>
               <Row>
-                  <Col></Col>
-                  <Col>
+                <Col sm={4}></Col>
+                <Col sm={4}>
                   <div>
                       <h1>Login</h1>
                       <form onSubmit={handleSubmit}>
                       <input name="username" placeholder="Username..." onChange={handleChange}></input>
                       <input  name="password" placeholder="Password..." onChange={handleChange}></input>
-                      <button>Login</button> 
+                      <Button style={{backgroundColor: "crimson", borderColor: "crimson"}} className="mt-2 mb-2" href="/connect">Login</Button> 
                       <Link to="/register">
-                      <button href="/register">Register</button>
+                      <Button style={{backgroundColor: "crimson", borderColor: "crimson"}} className="mt-2 mb-2" href="/register">Register</Button>
                       </Link>
-                     
                       </form>
                       </div>
                   </Col>
-                  <Col></Col>
+                  <Col sm={4}></Col>
               </Row>
           </Container>
      );

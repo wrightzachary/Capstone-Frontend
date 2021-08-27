@@ -35,22 +35,25 @@ const Register = () => {
         
         <Container>
             <Row>
-                <Col></Col>
-                <Col>
+            <Col sm={4}></Col>
+            <Col sm={4}>
                 <div>
                     <h1>Signup</h1>
-                    <form onSubmit={handleSubmit}>
-                    <input name="firstname" placeholder="First name..." onChange={handleChange}></input>
-                    <input  name="lastname" placeholder="Last name..." onChange={handleChange}></input>
-                    <input  name="username" placeholder="Username..." onChange={handleChange}></input>
-                    <input  name="email" placeholder="Email..." onChange={handleChange}></input>
-                    <input  name="password" placeholder="Password..." onChange={handleChange}></input>
-                    <input  name="phonenumber" placeholder="Phone number..." onChange={handleChange}></input>
-                    <button >Sign Up</button>
+                        <form onSubmit={handleSubmit}>
+                        <input name="firstname" placeholder="First name..." onChange={handleChange}></input>
+                        <input  name="lastname" placeholder="Last name..." onChange={handleChange}></input>
+                        <input  name="username" placeholder="Username..." onChange={handleChange}></input>
+                        <input  name="email" placeholder="Email..." onChange={handleChange}></input>
+                        <input  name="password" placeholder="Password..." onChange={handleChange}></input>
+                        <input  name="dutyStation" placeholder="Duty station served at..." onChange={handleChange}></input>
+                        <input  name="unit" placeholder=" Unit where you served..." onChange={handleChange}></input>
+                        <input  name="branchServed" placeholder="Branch served..." onChange={handleChange}></input>
+                        <input  name="currentLocation" placeholder="Current location?" onChange={handleChange}></input>
+                        <button style={{backgroundColor: "crimson", borderColor: "crimson"}} className="mt-2 mb-2">Sign Up</button>
                     </form>
                     </div>
                 </Col>
-                <Col></Col>
+                <Col sm={4}></Col>
             </Row>
         </Container>
     )
