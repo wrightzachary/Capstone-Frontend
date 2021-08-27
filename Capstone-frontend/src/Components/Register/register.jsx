@@ -10,7 +10,7 @@ const Register = () => {
         username: "",
         email: "",
         password: "",
-        branchserved: "",
+        branchServed: "",
         currentLocation: "",
         dutyStation: "",
         unit: "",
