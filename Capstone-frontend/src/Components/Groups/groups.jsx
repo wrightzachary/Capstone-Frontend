@@ -2,7 +2,6 @@ import React from 'react';
 import { Container, Row, Card, Col, Button} from 'react-bootstrap';
 import ConnectNavigationBar from '../Connect/connectNavBar';
 import { Link } from "react-router-dom";
-import CurrentGroup from './viewGroup';
 
 const ShowAllGroups = (props) => {
     const {allGroups, selectGroup} = props;

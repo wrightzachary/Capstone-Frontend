@@ -1,9 +1,11 @@
 import React from 'react';  
-import { Container, Row, Card, Col } from 'react-bootstrap';
+import { Container, Row, Card, Col, Button } from 'react-bootstrap';
 import ConnectNavigationBar from '../Connect/connectNavBar';
+import { Link } from "react-router-dom";
+
 
 const ShowAllTopics = (props) => {
-    let allTopics = props.allTopics
+  const {allTopics, selectTopic} = props;
     return (
         <React.Fragment>
           <ConnectNavigationBar />
@@ -25,7 +27,14 @@ const ShowAllTopics = (props) => {
                           >
                             <Card.Body className="text-center">
                               <Card.Text>{topic.topicName}</Card.Text>
-                              <button>View Topic</button> 
+                              <Link to="/viewTopic">
+                              <Button
+                                  style={{
+                                    backgroundColor: "crimson",
+                                    borderColor: "crimson",
+                                  }}
+                                  onClick={() =>  selectTopic(topic)}> View Topic </Button> 
+                              </Link>
                             </Card.Body>
                           </Card>
                         )

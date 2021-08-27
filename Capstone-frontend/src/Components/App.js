@@ -25,6 +25,7 @@ import jwtDecode from 'jwt-decode';
 import ShowAllGroups from './Groups/groups';
 import ShowAllTopics from './Topics/topics';
 import ViewGroup from './Groups/viewGroup';
+import ViewTopic from './Topics/viewTopic';
 
 function App() {
   const [currentUser, setCurrentUser] = useState();
@@ -32,6 +33,7 @@ function App() {
   const [allTopics, setAllTopics] =useState([]);
   const [token, setToken] = useState();
   const [currentGroup, setCurrentGroup] = useState([]);
+  const [currentTopic, setCurrentTopic] = useState([]);
 
   useEffect( () =>{
     const jwt = localStorage.getItem('token');
@@ -48,7 +50,7 @@ function App() {
   const setUserToken = (token) => {
     localStorage.setItem('token', token);
     setToken(token)
-  }
+  };
 
   const getAllGroups = async () => {
     let response = await axios.get("https://localhost:44394/api/group")
@@ -57,7 +59,7 @@ function App() {
       console.log(response.data)
     }
     
-  }
+  };
 
   const selectGroup = async (group) => {
     let response = await axios.get(
@@ -66,7 +68,7 @@ function App() {
     let currentGroup = response.data;
     setCurrentGroup(currentGroup);
   };
-
+  
   const getAllTopics = async () => {
     let response = await axios.get("https://localhost:44394/api/topic")
     if(response.data.length !== 0){
@@ -74,7 +76,16 @@ function App() {
       console.log(response.data)
     }
     
-  }
+  };
+
+  const selectTopic = async (topic) => {
+    let response = await axios.get(
+      `https://localhost:44394/api/topic/${topic.topicId}`
+    );
+    let currentTopic = response.data;
+    setCurrentTopic(currentTopic);
+  };
+
 
   return (
     <React.Fragment>
@@ -100,8 +111,8 @@ function App() {
           <Route path="/register" exact render={props => <Register {...props} />} />
           <Route path="/groups"  render={props => <ShowAllGroups {...props} allGroups={allGroups} selectGroup={selectGroup}/>} /> 
           <Route path="/viewGroup"  render={props => <ViewGroup {...props} currentGroup={currentGroup}/>} /> 
-         
-          <Route path="/topics"  render={props => <ShowAllTopics {...props} allTopics={allTopics}/>} /> 
+          <Route path="/topics"  render={props => <ShowAllTopics {...props} allTopics={allTopics} selectTopic={selectTopic} />} /> 
+          <Route path="/viewTopic"  render={props => <ViewTopic {...props} currentTopic={currentTopic}/>} /> 
         </Switch>
       </Router>
       <Footer />
