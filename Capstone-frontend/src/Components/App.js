@@ -26,6 +26,7 @@ import ShowAllGroups from './Groups/groups';
 import ShowAllTopics from './Topics/topics';
 import ViewGroup from './Groups/viewGroup';
 import ViewTopic from './Topics/viewTopic';
+import Post from './Post/post';
 
 function App() {
   const [currentUser, setCurrentUser] = useState();
@@ -34,6 +35,7 @@ function App() {
   const [token, setToken] = useState();
   const [currentGroup, setCurrentGroup] = useState([]);
   const [currentTopic, setCurrentTopic] = useState([]);
+
 
   useEffect( () =>{
     const jwt = localStorage.getItem('token');
@@ -86,7 +88,6 @@ function App() {
     setCurrentTopic(currentTopic);
   };
 
-
   return (
     <React.Fragment>
       <NavigationBar />
@@ -113,6 +114,7 @@ function App() {
           <Route path="/viewGroup"  render={props => <ViewGroup {...props} currentGroup={currentGroup}/>} /> 
           <Route path="/topics"  render={props => <ShowAllTopics {...props} allTopics={allTopics} selectTopic={selectTopic} />} /> 
           <Route path="/viewTopic"  render={props => <ViewTopic {...props} currentTopic={currentTopic}/>} /> 
+          <Route path="/post"  render={props => <Post {...props} />} /> 
         </Switch>
       </Router>
       <Footer />
