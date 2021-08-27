@@ -1,9 +1,11 @@
 import React from 'react';  
-import { Container, Row, Card, Col } from 'react-bootstrap';
+import { Container, Row, Card, Col, Button} from 'react-bootstrap';
 import ConnectNavigationBar from '../Connect/connectNavBar';
+import { Link } from "react-router-dom";
+import CurrentGroup from './viewGroup';
 
 const ShowAllGroups = (props) => {
-    let allGroups = props.allGroups
+    const {allGroups, selectGroup} = props;
     return (
         <React.Fragment>
           <ConnectNavigationBar />
@@ -25,7 +27,15 @@ const ShowAllGroups = (props) => {
                           >
                             <Card.Body className="text-center">
                               <Card.Text>{group.groupName}</Card.Text>
-                              <button>View Group</button> 
+                              <div className="mb-2"></div>
+                              <Link to="/viewGroup">
+                                <Button
+                                  style={{
+                                    backgroundColor: "crimson",
+                                    borderColor: "crimson",
+                                  }}
+                                  onClick={() =>  selectGroup(group)}> View Group </Button> 
+                              </Link>
                             </Card.Body>
                           </Card>
                         )

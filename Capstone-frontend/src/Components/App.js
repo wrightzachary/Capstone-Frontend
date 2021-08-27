@@ -24,12 +24,14 @@ import Register from './Register/register';
 import jwtDecode from 'jwt-decode';
 import ShowAllGroups from './Groups/groups';
 import ShowAllTopics from './Topics/topics';
+import ViewGroup from './Groups/viewGroup';
 
 function App() {
   const [currentUser, setCurrentUser] = useState();
   const [allGroups, setAllGroups] =useState([]);
   const [allTopics, setAllTopics] =useState([]);
   const [token, setToken] = useState();
+  const [currentGroup, setCurrentGroup] = useState([]);
 
   useEffect( () =>{
     const jwt = localStorage.getItem('token');
@@ -56,6 +58,14 @@ function App() {
     }
     
   }
+
+  const selectGroup = async (group) => {
+    let response = await axios.get(
+      `https://localhost:44394/api/group/${group.groupId}`
+    );
+    let currentGroup = response.data;
+    setCurrentGroup(currentGroup);
+  };
 
   const getAllTopics = async () => {
     let response = await axios.get("https://localhost:44394/api/topic")
@@ -88,7 +98,9 @@ function App() {
           <Route path="/connect" exact render={props => <ConnectHome {...props} />}  /> 
           <Route path="/Login"  exact render={props => <LoginForm {...props} setUserToken={setUserToken}  />} />
           <Route path="/register" exact render={props => <Register {...props} />} />
-          <Route path="/groups"  render={props => <ShowAllGroups {...props} allGroups={allGroups}/>} /> 
+          <Route path="/groups"  render={props => <ShowAllGroups {...props} allGroups={allGroups} selectGroup={selectGroup}/>} /> 
+          <Route path="/viewGroup"  render={props => <ViewGroup {...props} currentGroup={currentGroup}/>} /> 
+         
           <Route path="/topics"  render={props => <ShowAllTopics {...props} allTopics={allTopics}/>} /> 
         </Switch>
       </Router>
