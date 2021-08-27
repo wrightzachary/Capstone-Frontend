@@ -30,28 +30,46 @@ import Post from './Post/post';
 
 function App() {
   const [currentUser, setCurrentUser] = useState();
+  const [loading, setLoading] = useState(true);
   const [allGroups, setAllGroups] =useState([]);
   const [allTopics, setAllTopics] =useState([]);
   const [token, setToken] = useState();
   const [currentGroup, setCurrentGroup] = useState([]);
   const [currentTopic, setCurrentTopic] = useState([]);
+  const [posts, setPosts] =useState([]);
+
 
 
   useEffect( () =>{
     const jwt = localStorage.getItem('token');
+    createCurrentUser();
     setToken(jwt)
     getAllGroups();
     getAllTopics();
+    getPosts();
     try{
       const user = jwtDecode(jwt);
       setCurrentUser({user})
+      setLoading(false);
     }
-    catch {}
+    catch {
+      setLoading(false);
+    }
   }, [])
 
+
   const setUserToken = (token) => {
-    localStorage.setItem('token', token);
-    setToken(token)
+    localStorage.setItem("token", token);
+    setToken(token);
+    const user = jwtDecode(token);
+    setCurrentUser(user);
+    setLoading(false);
+    console.log(user);
+    window.location = "/";
+  };
+
+  const createCurrentUser = (user) => {
+    setCurrentUser(user);
   };
 
   const getAllGroups = async () => {
@@ -88,10 +106,21 @@ function App() {
     setCurrentTopic(currentTopic);
   };
 
+  const getPosts = async () => {
+    let response = await axios.get("https://localhost:44394/api/post")
+    if(response.data.length !== 0){
+      setPosts(response.data)
+      console.log(response.data)
+    }
+    
+  };
+
   return (
     <React.Fragment>
       <NavigationBar />
       <Router>
+        {!loading &&
+        
         <Switch>
           <Route path="/" exact render={props => <Home {...props} />} /> 
           <Route path="/helpline" exact render={props => <Helpline {...props} />} /> 
@@ -107,15 +136,16 @@ function App() {
           <Route path="/helpingYourVeteran" exact render={props => <HelpingVeterans {...props} />} /> 
           <Route path="/findFacility" exact render={props => <FindAFacility {...props} />} /> 
           <Route path="/statistics" exact render={props => <Statistics {...props} />} /> 
-          <Route path="/connect" exact render={props => <ConnectHome {...props} />}  /> 
-          <Route path="/Login"  exact render={props => <LoginForm {...props} setUserToken={setUserToken}  />} />
+          <Route path="/connect" exact render={props => <ConnectHome {...props} currentUser={currentUser} />}  /> 
+          <Route path="/Login"  exact render={props => <LoginForm {...props}   setUserToken={setUserToken}  />} />
           <Route path="/register" exact render={props => <Register {...props} />} />
           <Route path="/groups"  render={props => <ShowAllGroups {...props} allGroups={allGroups} selectGroup={selectGroup}/>} /> 
           <Route path="/viewGroup"  render={props => <ViewGroup {...props} currentGroup={currentGroup}/>} /> 
           <Route path="/topics"  render={props => <ShowAllTopics {...props} allTopics={allTopics} selectTopic={selectTopic} />} /> 
           <Route path="/viewTopic"  render={props => <ViewTopic {...props} currentTopic={currentTopic}/>} /> 
-          <Route path="/post"  render={props => <Post {...props} />} /> 
+          <Route path="/post"  render={props => <Post {...props}  currentUser={currentUser} currentToken={token} />} /> 
         </Switch>
+        } 
       </Router>
       <Footer />
   </React.Fragment>

@@ -18,17 +18,23 @@ const LoginForm = (props) => {
   const handleSubmit = (event) => {
     event.preventDefault();
     logIn();
+    
   }
   
   const logIn = async () => {
     let userData = logInInfo;
-    let response = await axios.post("https://localhost:44394/api/authentication/login", userData);
-    console.log(response)
-    props.setUserToken(response.data.token)
+    await axios.post("https://localhost:44394/api/authentication/login", userData) .then((response) => {
     if (response.data.length !== 0){
+      props.setUserToken(response.data.token)
         console.log("hello");
         window.location.href="/connect"
     }
+    }).catch ((error) => {
+        if (error){
+          console.log(error)
+        }
+    })
+    
   }
     
     
@@ -42,7 +48,8 @@ const LoginForm = (props) => {
                       <form onSubmit={handleSubmit}>
                       <input name="username" placeholder="Username..." onChange={handleChange}></input>
                       <input  name="password" placeholder="Password..." onChange={handleChange}></input>
-                      <Button style={{backgroundColor: "crimson", borderColor: "crimson"}} className="mt-2 mb-2" href="/connect">Login</Button> 
+
+                      <Button style={{backgroundColor: "crimson", borderColor: "crimson"}} className="mt-2 mb-2" type="submit" >Login</Button> 
                       <Link to="/register">
                       <Button style={{backgroundColor: "crimson", borderColor: "crimson"}} className="mt-2 mb-2" href="/register">Register</Button>
                       </Link>

@@ -10,7 +10,10 @@ const Register = () => {
         username: "",
         email: "",
         password: "",
-        phonenumber: ""
+        branchserved: "",
+        currentLocation: "",
+        dutyStation: "",
+        unit: "",
     }
     const [eachEntry, setEachEntry] = useState(initialUserInfo)
 
