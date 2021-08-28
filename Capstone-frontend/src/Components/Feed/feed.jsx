@@ -1,9 +1,10 @@
 import React from 'react';
-import { Container, Row, Card, Col, Form, InputGroup } from "react-bootstrap";
+import { Container, Row, Card, Col, Button } from "react-bootstrap";
+import { Link } from "react-router-dom";
 import ConnectNavigationBar from '../Connect/connectNavBar';
 
 const ShowAllPosts = (props) => {
-  const {posts} = props;
+  const {posts, selectPost} = props;
 
   return ( 
         <React.Fragment>
@@ -17,37 +18,26 @@ const ShowAllPosts = (props) => {
             </Row>
         </Container>
             <Container fluid>
-                <Row className="d-flex justify-content-center">
                     {posts.map((post) =>{
                         return (
                             <Card
                             className="card-container border border-primary "
-                            style={{ width: "18rem", margin: "1rem" }}
+                            style={{ display:"flex", width: "18rem", margin: "0rem" }}
                           >
                             <Card.Body className="text-center">
                               <Card.Text>{post.postContext}</Card.Text>
-                              {/* <Link to="/viewTopic">
+                              <Link to="/viewPost">
                               <Button
                                   style={{
                                     backgroundColor: "crimson",
                                     borderColor: "crimson",
                                   }}
-                                  onClick={() =>  selectTopic(topic)}> View Topic </Button> 
-                              </Link> */}
+                                  onClick={() =>  selectPost(post)}>View Post </Button> 
+                              </Link>
                             </Card.Body>
-                            <InputGroup className="mb-3">
-                                {/* <InputGroup.Text id="basic-addon1"></InputGroup.Text> */}
-                                <input
-                                placeholder="Comment..."
-                                aria-label="Comment..."
-                                aria-describedby="basic-addon1"
-                                />
-                            </InputGroup>
-
                           </Card>
                         )
                     })}
-                </Row>
             </Container>
         </React.Fragment>
      );

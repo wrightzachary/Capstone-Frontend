@@ -28,6 +28,7 @@ import ViewGroup from './Groups/viewGroup';
 import ViewTopic from './Topics/viewTopic';
 import Post from './Post/post';
 import ShowAllPosts from './Feed/feed';
+import ViewPost from './Post/viewPost';
 
 function App() {
   const [currentUser, setCurrentUser] = useState();
@@ -38,6 +39,7 @@ function App() {
   const [currentGroup, setCurrentGroup] = useState([]);
   const [currentTopic, setCurrentTopic] = useState([]);
   const [posts, setPosts] =useState([]);
+  const [currentPost, setCurrentPost] = useState([]);
 
 
 
@@ -113,8 +115,17 @@ function App() {
       setPosts(response.data)
       console.log(response.data)
     }
-    
   };
+
+  const selectPost = async (post) => {
+    let response = await axios.get(
+      `https://localhost:44394/api/post/${post.postId}`
+    );
+    let currentPost = response.data;
+    setCurrentPost(currentPost);
+  };
+    
+
 
   return (
     <React.Fragment>
@@ -145,8 +156,8 @@ function App() {
           <Route path="/topics"  render={props => <ShowAllTopics {...props} allTopics={allTopics} selectTopic={selectTopic} />} /> 
           <Route path="/viewTopic"  render={props => <ViewTopic {...props} currentTopic={currentTopic}/>} /> 
           <Route path="/post"  render={props => <Post {...props}  currentUser={currentUser} currentToken={token} />} /> 
-          <Route path="/feed"  render={props => <ShowAllPosts {...props}  posts={posts} />} /> 
-
+          <Route path="/feed"  render={props => <ShowAllPosts {...props}  posts={posts} selectPost={selectPost} />} /> 
+          <Route path="/viewPost"  render={props => <ViewPost {...props} currentPost={currentPost}/>} /> 
         </Switch>
         } 
       </Router>
