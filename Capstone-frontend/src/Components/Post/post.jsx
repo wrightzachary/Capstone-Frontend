@@ -23,6 +23,7 @@ const Post = (props) => {
     const handleSubmit = (event) => {
         event.preventDefault();
         submitPost();
+        window.location.href="/feed"
     }
     const submitPost = async () => {
         let postData = eachEntry

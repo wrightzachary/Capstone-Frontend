@@ -27,6 +27,7 @@ import ShowAllTopics from './Topics/topics';
 import ViewGroup from './Groups/viewGroup';
 import ViewTopic from './Topics/viewTopic';
 import Post from './Post/post';
+import ShowAllPosts from './Feed/feed';
 
 function App() {
   const [currentUser, setCurrentUser] = useState();
@@ -136,7 +137,7 @@ function App() {
           <Route path="/helpingYourVeteran" exact render={props => <HelpingVeterans {...props} />} /> 
           <Route path="/findFacility" exact render={props => <FindAFacility {...props} />} /> 
           <Route path="/statistics" exact render={props => <Statistics {...props} />} /> 
-          <Route path="/connect" exact render={props => <ConnectHome {...props} currentUser={currentUser} />}  /> 
+          <Route path="/connect" exact render={props => <ConnectHome {...props} currentUser={currentUser} posts={posts} />}  /> 
           <Route path="/Login"  exact render={props => <LoginForm {...props}   setUserToken={setUserToken}  />} />
           <Route path="/register" exact render={props => <Register {...props} />} />
           <Route path="/groups"  render={props => <ShowAllGroups {...props} allGroups={allGroups} selectGroup={selectGroup}/>} /> 
@@ -144,6 +145,8 @@ function App() {
           <Route path="/topics"  render={props => <ShowAllTopics {...props} allTopics={allTopics} selectTopic={selectTopic} />} /> 
           <Route path="/viewTopic"  render={props => <ViewTopic {...props} currentTopic={currentTopic}/>} /> 
           <Route path="/post"  render={props => <Post {...props}  currentUser={currentUser} currentToken={token} />} /> 
+          <Route path="/feed"  render={props => <ShowAllPosts {...props}  posts={posts} />} /> 
+
         </Switch>
         } 
       </Router>
