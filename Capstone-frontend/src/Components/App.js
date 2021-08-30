@@ -152,7 +152,7 @@ function App() {
         </Switch>
         } 
       </Router>
-      {/* <Footer /> */}
+      <Footer />
   </React.Fragment>
   
   );
