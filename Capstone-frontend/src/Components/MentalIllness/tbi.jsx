@@ -1,29 +1,45 @@
 import React from 'react';
 import MentalIllenesDropdown from './mentalIllnessDropdown';
 import './mentalIllness.css';
+import { Col, Container, Row, InputGroup, Card } from "react-bootstrap";
 
 const TBI = () => {
     return ( 
         <React.Fragment>
-            <div className="mentalHeading">
-                <h1>Effects of Tramautic Brain Injury</h1>
-                <p>
-                    A TBI can be a result of any hard impact to an individuals skull
-                    <h5>Common symptoms of TBI:</h5>
-                    <ul>
-                        <li>Headaches</li>
-                        <li>Blurred vision</li>
-                        <li>Hearing problems</li>
-                        <li>Difficulty speaking</li>
-                        <li>Dizziness</li>
-                        <li>Changes in sense of taste or smell</li>
-                        <li>Difficulty concentrating or memory loss</li>
-                        <li>Repeating yourself</li>
-                        <li>Increased irrebility/frustration</li>
-                    </ul>
-                </p>
-            </div>
             <MentalIllenesDropdown />
+            <Container>
+            <Row>
+                <Col sm={4}></Col>
+                <Col sm={8}></Col>
+            </Row>
+            </Container><Container fluid>
+                <Row className="d-flex justify-content-center">
+                        <Card
+                        className="card-container border border-primary "
+                        style={{ width: "40rem", margin: "1rem" }}
+                        >
+                        <Card.Body>
+                        <Card.Text>
+                            <h1>Effects of Tramautic Brain Injury</h1>
+                            <hr></hr>
+                            <h5>Common symptoms of TBI:</h5>
+                            <ul>
+                                <li>Headaches</li>
+                                <li>Blurred vision</li>
+                                <li>Hearing problems</li>
+                                <li>Difficulty speaking</li>
+                                <li>Dizziness</li>
+                                <li>Changes in sense of taste or smell</li>
+                                <li>Difficulty concentrating or memory loss</li>
+                                <li>Repeating yourself</li>
+                                <li>Increased irrebility/frustration</li>
+                            </ul>
+                            </Card.Text>
+                            <div className="mb-2"></div>
+                        </Card.Body>
+                    </Card>
+                </Row>
+            </Container>
         </React.Fragment>
      );
 }
