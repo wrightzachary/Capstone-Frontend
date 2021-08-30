@@ -53,7 +53,9 @@ class Chart extends Component {
     
     render() { 
         return ( 
-           <div className="chart">
+            <React.Fragment>
+                 <div className="chart">
+                <h1>Annual Veteran Suicides</h1>
                <Bar
                     data={this.state.chartData}
                     options={{ 
@@ -68,6 +70,9 @@ class Chart extends Component {
                     }}
                 />
             </div>
+
+            </React.Fragment>
+          
          );
     }
 }
