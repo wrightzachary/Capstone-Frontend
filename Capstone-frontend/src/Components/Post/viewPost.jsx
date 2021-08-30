@@ -3,7 +3,8 @@ import { Col, Container, Row, InputGroup, Card } from "react-bootstrap";
 import ConnectNavigationBar from "../Connect/connectNavBar";
 
 const ViewPost = (props) => {
-    const {postContext} = props.currentPost
+    const {postContext} = props.currentPost;
+    const {postComments} = props;
   return (
     <React.Fragment>
         <ConnectNavigationBar />
@@ -33,6 +34,18 @@ const ViewPost = (props) => {
                         </Card.Body>
                     </Card>
                 </Row>
+                {postComments.map((comment) =>{
+                        return (
+                            <Card
+                            className="card-container border border-primary "
+                            style={{ display:"flex", width: "18rem", margin: "0rem" }}
+                          >
+                            <Card.Body className="text-center">
+                              <Card.Text>{comment.commentContext}</Card.Text>
+                            </Card.Body>
+                          </Card>
+                        )
+                    })}
             </Container>
     </React.Fragment>
   );

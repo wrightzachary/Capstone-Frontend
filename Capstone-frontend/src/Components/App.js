@@ -30,6 +30,7 @@ import Post from './Post/post';
 import ShowAllPosts from './Feed/feed';
 import ViewPost from './Post/viewPost';
 import Profile from './Profile/profile';
+import { get } from 'react-hook-form';
 
 function App() {
   const [currentUser, setCurrentUser] = useState();
@@ -41,6 +42,8 @@ function App() {
   const [currentTopic, setCurrentTopic] = useState([]);
   const [posts, setPosts] =useState([]);
   const [currentPost, setCurrentPost] = useState([]);
+  const [comments, setComments] = useState([]);
+  const [postComments, setPostComments] = useState([]);
 
 
 
@@ -51,6 +54,7 @@ function App() {
     getAllGroups();
     getAllTopics();
     getPosts();
+    getComments();
     try{
       const user = jwtDecode(jwt);
       setCurrentUser({user})
@@ -124,9 +128,24 @@ function App() {
     );
     let currentPost = response.data;
     setCurrentPost(currentPost);
+    getPostComment();
   };
-    
 
+  const getComments = async () => {
+    let response = await axios.get("https://localhost:44394/api/comment")
+    if(response.data.length !== 0){
+      setComments(response.data)
+      console.log(response.data)
+    }
+  };
+
+  const getPostComment = async (postId) => {
+    let response = await axios.get(
+      `https://localhost:44394/api/comment/${postId}`
+    );
+    setPostComments(response.data);
+    console.log(response.data)
+  };
 
   return (
     <React.Fragment>
@@ -159,7 +178,11 @@ function App() {
           <Route path="/viewTopic"  render={props => <ViewTopic {...props} currentTopic={currentTopic}/>} /> 
           <Route path="/post"  render={props => <Post {...props}  currentUser={currentUser} currentToken={token} />} /> 
           <Route path="/feed"  render={props => <ShowAllPosts {...props}  posts={posts} selectPost={selectPost} />} /> 
-          <Route path="/viewPost"  render={props => <ViewPost {...props} currentPost={currentPost}/>} /> 
+          <Route path="/viewPost"  render={props => <ViewPost {...props} 
+          currentPost={currentPost}
+           getComments={getComments}
+            postComments={postComments}
+             />} /> 
         </Switch>
         } 
       </Router>
