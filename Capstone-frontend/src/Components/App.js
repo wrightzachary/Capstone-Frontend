@@ -29,6 +29,7 @@ import ViewTopic from './Topics/viewTopic';
 import Post from './Post/post';
 import ShowAllPosts from './Feed/feed';
 import ViewPost from './Post/viewPost';
+import Profile from './Profile/profile';
 
 function App() {
   const [currentUser, setCurrentUser] = useState();
@@ -149,6 +150,7 @@ function App() {
           <Route path="/findFacility" exact render={props => <FindAFacility {...props} />} /> 
           <Route path="/statistics" exact render={props => <Statistics {...props} />} /> 
           <Route path="/connect" exact render={props => <ConnectHome {...props} currentUser={currentUser} posts={posts} />}  /> 
+          <Route path="/profile" exact render={props => <Profile {...props} currentUser={currentUser}/>}  /> 
           <Route path="/Login"  exact render={props => <LoginForm {...props}   setUserToken={setUserToken}  />} />
           <Route path="/register" exact render={props => <Register {...props} />} />
           <Route path="/groups"  render={props => <ShowAllGroups {...props} allGroups={allGroups} selectGroup={selectGroup}/>} /> 
