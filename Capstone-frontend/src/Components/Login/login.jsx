@@ -27,7 +27,7 @@ const LoginForm = (props) => {
     if (response.data.length !== 0){
       props.setUserToken(response.data.token)
         console.log("hello");
-        window.location.href="/connect"
+        window.location.href="/feed"
     }
     }).catch ((error) => {
         if (error){

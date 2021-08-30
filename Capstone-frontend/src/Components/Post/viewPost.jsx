@@ -29,6 +29,7 @@ const ViewPost = (props) => {
                         <CommentForm  currentUser={currentUser} currentPost={currentPost} />
                     </Card>
                 </Row>
+                <Row className="d-flex justify-content-center">
                 {postComments.map((comment) =>{
                         return (
                             <Card
@@ -41,6 +42,7 @@ const ViewPost = (props) => {
                           </Card>
                         )
                     })}
+                    </Row>
             </Container>
     </React.Fragment>
   );
