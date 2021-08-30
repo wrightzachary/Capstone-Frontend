@@ -22,25 +22,16 @@ import ConnectHome from './Connect/connectHome';
 import LoginForm from './Login/login';
 import Register from './Register/register';
 import jwtDecode from 'jwt-decode';
-import ShowAllGroups from './Groups/groups';
-import ShowAllTopics from './Topics/topics';
-import ViewGroup from './Groups/viewGroup';
-import ViewTopic from './Topics/viewTopic';
 import Post from './Post/post';
 import ShowAllPosts from './Feed/feed';
 import ViewPost from './Post/viewPost';
-import Profile from './Profile/profile';
 import { get } from 'react-hook-form';
 
 function App() {
   const [currentUser, setCurrentUser] = useState();
   const [users, setUsers] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [allGroups, setAllGroups] =useState([]);
-  const [allTopics, setAllTopics] =useState([]);
   const [token, setToken] = useState();
-  const [currentGroup, setCurrentGroup] = useState([]);
-  const [currentTopic, setCurrentTopic] = useState([]);
   const [posts, setPosts] =useState([]);
   const [currentPost, setCurrentPost] = useState([]);
   const [comments, setComments] = useState([]);
@@ -53,8 +44,6 @@ function App() {
     createCurrentUser();
     setToken(jwt)
     getUsers();
-    getAllGroups();
-    getAllTopics();
     getPosts();
     getComments();
     try{
@@ -82,14 +71,6 @@ function App() {
     setCurrentUser(user);
   };
 
-  const getAllGroups = async () => {
-    let response = await axios.get("https://localhost:44394/api/group")
-    if(response.data.length !== 0){
-      setAllGroups(response.data)
-      console.log(response.data)
-    }
-    
-  };
   const getUsers = async () => {
     let response = await axios.get("https://localhost:44394/api/user")
     if(response.data.length !== 0){
@@ -99,31 +80,6 @@ function App() {
     
   };
 
-
-  const selectGroup = async (group) => {
-    let response = await axios.get(
-      `https://localhost:44394/api/group/${group.groupId}`
-    );
-    let currentGroup = response.data;
-    setCurrentGroup(currentGroup);
-  };
-  
-  const getAllTopics = async () => {
-    let response = await axios.get("https://localhost:44394/api/topic")
-    if(response.data.length !== 0){
-      setAllTopics(response.data)
-      console.log(response.data)
-    }
-    
-  };
-
-  const selectTopic = async (topic) => {
-    let response = await axios.get(
-      `https://localhost:44394/api/topic/${topic.topicId}`
-    );
-    let currentTopic = response.data;
-    setCurrentTopic(currentTopic);
-  };
 
   const getPosts = async () => {
     let response = await axios.get("https://localhost:44394/api/post")
@@ -182,13 +138,8 @@ function App() {
           <Route path="/findFacility" exact render={props => <FindAFacility {...props} />} /> 
           <Route path="/statistics" exact render={props => <Statistics {...props} />} /> 
           <Route path="/connect" exact render={props => <ConnectHome {...props} currentUser={currentUser} posts={posts} />}  /> 
-          <Route path="/profile" exact render={props => <Profile {...props} currentUser={currentUser}/>}  /> 
           <Route path="/Login"  exact render={props => <LoginForm {...props}   setUserToken={setUserToken}  />} />
           <Route path="/register" exact render={props => <Register {...props} />} />
-          <Route path="/groups"  render={props => <ShowAllGroups {...props} allGroups={allGroups} selectGroup={selectGroup}/>} /> 
-          <Route path="/viewGroup"  render={props => <ViewGroup {...props} currentGroup={currentGroup}/>} /> 
-          <Route path="/topics"  render={props => <ShowAllTopics {...props} allTopics={allTopics} selectTopic={selectTopic} />} /> 
-          <Route path="/viewTopic"  render={props => <ViewTopic {...props} currentTopic={currentTopic}/>} /> 
           <Route path="/post"  render={props => <Post {...props}  currentUser={currentUser} currentToken={token} />} /> 
           <Route path="/feed"  render={props => <ShowAllPosts {...props}  posts={posts} selectPost={selectPost} currentUser={currentUser}
           currentPost={currentPost} />} /> 

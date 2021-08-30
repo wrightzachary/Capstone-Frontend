@@ -2,7 +2,6 @@ import React from 'react';
 import { Container, Row, Card, Col, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import ConnectNavigationBar from '../Connect/connectNavBar';
-import './feed.css';
 
 const ShowAllPosts = (props) => {
   const {posts, selectPost} = props;

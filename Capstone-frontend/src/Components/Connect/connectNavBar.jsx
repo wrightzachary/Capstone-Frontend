@@ -3,12 +3,11 @@ import { Button, Offcanvas, Nav } from 'react-bootstrap';
 
 
 
-// const ConnectNavigationBar = () => {
   function ConnectNavigationBar() {
     const [show, setShow] = useState(false);
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
-  
+
     return (
       <>
       <Button variant="primary" onClick={handleShow}>
@@ -21,12 +20,9 @@ import { Button, Offcanvas, Nav } from 'react-bootstrap';
         </Offcanvas.Header>
         <Offcanvas.Body>
           <Nav defaultActiveKey="/home" className="flex-column">
-            <Nav.Link href="/profile">Profile</Nav.Link>
-            <Nav.Link href="/post">Post</Nav.Link>
+            <Nav.Link href="/post">Make A Post</Nav.Link>
             <Nav.Link href="/feed">Feed</Nav.Link>
             <Nav.Link href="/friends">Friends</Nav.Link>
-            <Nav.Link href="/groups">Groups</Nav.Link>
-            <Nav.Link href="/topics">Topics</Nav.Link>
           </Nav>
         </Offcanvas.Body>
       </Offcanvas>
