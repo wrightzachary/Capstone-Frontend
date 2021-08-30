@@ -4,12 +4,10 @@ import axios from 'axios';
 
 const CommentForm = (props) => {
     const { currentUser, comments, currentPost} = props;
-    console.log(currentPost.postId)
     const token = props.token;
     const getComments = props.getComments;
     const currentPostId = currentPost.postId;
     const id = props.currentUser.user.id; 
-    console.log(currentUser.user.username)
     if(props.currentUser !== undefined) {
     }
 

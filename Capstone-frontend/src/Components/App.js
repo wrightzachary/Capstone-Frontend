@@ -58,7 +58,6 @@ function App() {
     try{
       const user = jwtDecode(jwt);
       setCurrentUser({user})
-      console.log(user)
       setLoading(false);
     }
     catch {
@@ -129,7 +128,9 @@ function App() {
     );
     let currentPost = response.data;
     setCurrentPost(currentPost);
-    getPostComment();
+    console.log(post)
+    getPostComment(post.postId);
+
   };
 
   const getComments = async () => {
