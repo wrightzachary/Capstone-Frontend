@@ -48,7 +48,11 @@ export class MapContainer extends Component {
  
   render() {
     return (
-      <div id='googleMaps'>
+      <React.Fragment>
+      <div className="find">
+        <h1>Find A VA Facility</h1>
+      </div>
+      <div id='googleMaps' className="googleMaps">
         <PlacesAutocomplete
           value={this.state.address}
           onChange={this.handleChange}
@@ -87,7 +91,7 @@ export class MapContainer extends Component {
             </div>
           )}
         </PlacesAutocomplete >
-
+        <div className="map">
         <Map 
           google={this.props.google}
           initialCenter={{
@@ -107,7 +111,9 @@ export class MapContainer extends Component {
               lng: this.state.mapCenter.lng
             }} />
         </Map>
+        </div>
       </div>
+      </React.Fragment>
     )
   }
 }
