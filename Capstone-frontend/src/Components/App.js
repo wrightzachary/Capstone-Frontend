@@ -179,6 +179,7 @@ function App() {
           <Route path="/post"  render={props => <Post {...props}  currentUser={currentUser} currentToken={token} />} /> 
           <Route path="/feed"  render={props => <ShowAllPosts {...props}  posts={posts} selectPost={selectPost} />} /> 
           <Route path="/viewPost"  render={props => <ViewPost {...props} 
+          currentUser={currentUser}
           currentPost={currentPost}
            getComments={getComments}
             postComments={postComments}

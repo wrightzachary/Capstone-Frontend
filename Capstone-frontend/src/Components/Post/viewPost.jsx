@@ -1,10 +1,11 @@
 import React from "react";
 import { Col, Container, Row, InputGroup, Card } from "react-bootstrap";
 import ConnectNavigationBar from "../Connect/connectNavBar";
+import CommentForm from "../Comment/comment";
 
 const ViewPost = (props) => {
     const {postContext} = props.currentPost;
-    const {postComments} = props;
+    const {postComments, currentUser, currentPost} = props;
   return (
     <React.Fragment>
         <ConnectNavigationBar />
@@ -23,15 +24,8 @@ const ViewPost = (props) => {
                         <Card.Body className="text-center">
                             <Card.Text>{postContext}</Card.Text>
                             <div className="mb-2"></div>
-                            <InputGroup className="mb-3">
-                                {/* <InputGroup.Text id="basic-addon1"></InputGroup.Text> */}
-                                <input
-                                placeholder="Comment..."
-                                aria-label="Comment..."
-                                aria-describedby="basic-addon1"
-                                />
-                            </InputGroup>
                         </Card.Body>
+                        <CommentForm  currentUser={currentUser} currentPost={currentPost} />
                     </Card>
                 </Row>
                 {postComments.map((comment) =>{
