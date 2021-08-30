@@ -43,18 +43,18 @@ const LoginForm = (props) => {
               <Row>
                 <Col sm={4}></Col>
                 <Col sm={4}>
-                  <div>
                       <h1>Login</h1>
                       <form onSubmit={handleSubmit}>
-                      <input name="username" placeholder="Username..." onChange={handleChange}></input>
-                      <input  name="password" placeholder="Password..." onChange={handleChange}></input>
-
-                      <Button style={{backgroundColor: "crimson", borderColor: "crimson"}} className="mt-2 mb-2" type="submit" >Login</Button> 
-                      <Link to="/register">
-                      <Button style={{backgroundColor: "crimson", borderColor: "crimson"}} className="mt-2 mb-2" href="/register">Register</Button>
-                      </Link>
+                        <input name="username" placeholder="Username..." onChange={handleChange}></input>
+                        <input  name="password" placeholder="Password..." onChange={handleChange}></input>
+                        <br></br>
+                        <div className="mb-2">
+                          <Button style={{backgroundColor: "crimson", borderColor: "white"}} className="mt-2 mb-2" type="submit" >Login</Button> 
+                          <Link to="/register">
+                          <Button style={{backgroundColor: "crimson", borderColor: "white"}} className="mt-2 mb-2" href="/register">Register</Button>
+                        </Link>
+                        </div>
                       </form>
-                      </div>
                   </Col>
                   <Col sm={4}></Col>
               </Row>
