@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import { Container, Row, Col, Button, Form } from 'react-bootstrap';
+import { Container, Row, Col, Button, Form, FormControl, InputGroup } from 'react-bootstrap';
 import axios from 'axios';
 
 const CommentForm = (props) => {
@@ -55,11 +55,17 @@ const CommentForm = (props) => {
             <Container>
                 <Row>
                     <Form onSubmit={handleSubmit}>
-                        <div>
-                            <input className=" form-control" onChange={handleChange}  name="CommentContext" placeholder="Enter your comment..."></input>
-                        </div>
-                        <Button style={{backgroundColor: "crimson", borderColor: "crimson"}} className="mt-2 mb-2" type="submit">Submit Comment</Button>
-                        </Form>
+                        <InputGroup className="mb-3">
+                            <FormControl
+                            onChange={handleChange}
+                            name="CommentContext"
+                            placeholder="Enter your comment..."
+                            aria-label="comments"
+                            aria-describedby="basic-addon2"
+                            />
+                            <Button style={{backgroundColor: "crimson", borderColor: "crimson"}} type="submit"> Submit </Button>
+                        </InputGroup>
+                    </Form>
                 </Row>
             </Container>
         </React.Fragment>
