@@ -4,8 +4,8 @@ import ConnectNavigationBar from "../Connect/connectNavBar";
 import CommentForm from "../Comment/comment";
 
 const ViewPost = (props) => {
-    const {postContext} = props.currentPost;
-    const {postComments, currentUser, currentPost} = props;
+    const {postContext, dateCreated} = props.currentPost;
+    const {posts, user, postComments, currentUser, currentPost} = props;
   return (
     <React.Fragment>
         <ConnectNavigationBar />
@@ -22,6 +22,7 @@ const ViewPost = (props) => {
                         style={{ width: "18rem", margin: "1rem" }}
                         >
                         <Card.Body className="text-center">
+                            <Card.Text><h6>{dateCreated}</h6></Card.Text>
                             <Card.Text>{postContext}</Card.Text>
                             <div className="mb-2"></div>
                         </Card.Body>

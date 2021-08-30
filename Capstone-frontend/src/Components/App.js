@@ -58,6 +58,7 @@ function App() {
     try{
       const user = jwtDecode(jwt);
       setCurrentUser({user})
+      console.log(user)
       setLoading(false);
     }
     catch {
@@ -177,7 +178,8 @@ function App() {
           <Route path="/topics"  render={props => <ShowAllTopics {...props} allTopics={allTopics} selectTopic={selectTopic} />} /> 
           <Route path="/viewTopic"  render={props => <ViewTopic {...props} currentTopic={currentTopic}/>} /> 
           <Route path="/post"  render={props => <Post {...props}  currentUser={currentUser} currentToken={token} />} /> 
-          <Route path="/feed"  render={props => <ShowAllPosts {...props}  posts={posts} selectPost={selectPost} />} /> 
+          <Route path="/feed"  render={props => <ShowAllPosts {...props}  posts={posts} selectPost={selectPost} currentUser={currentUser}
+          currentPost={currentPost} />} /> 
           <Route path="/viewPost"  render={props => <ViewPost {...props} 
           currentUser={currentUser}
           currentPost={currentPost}
@@ -187,7 +189,7 @@ function App() {
         </Switch>
         } 
       </Router>
-      <Footer />
+      {/* <Footer /> */}
   </React.Fragment>
   
   );

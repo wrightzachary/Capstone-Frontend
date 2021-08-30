@@ -5,14 +5,15 @@ import ConnectNavigationBar from '../Connect/connectNavBar';
 
 const ShowAllPosts = (props) => {
   const {posts, selectPost} = props;
-
+  const {postContext, dateCreated} = props.currentPost;
+  const {currentUser} = props;
   return ( 
         <React.Fragment>
             <ConnectNavigationBar />
             <Container>
             <Row>
                 <Col sm={4}>
-                <h1>Feed</h1>
+                <h1>{currentUser.user.username}'s News Feed</h1>
                 </Col>
                 <Col sm={8}></Col>
             </Row>
@@ -25,6 +26,8 @@ const ShowAllPosts = (props) => {
                             style={{ display:"flex", width: "18rem", margin: "0rem" }}
                           >
                             <Card.Body className="text-center">
+                            <Card.Text><h1>{post.user}</h1></Card.Text>
+                            <Card.Text><h6>{post.dateCreated}</h6></Card.Text>
                               <Card.Text>{post.postContext}</Card.Text>
                               <Link to="/viewPost">
                               <Button
