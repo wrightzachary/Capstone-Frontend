@@ -34,6 +34,7 @@ import { get } from 'react-hook-form';
 
 function App() {
   const [currentUser, setCurrentUser] = useState();
+  const [users, setUsers] = useState([]);
   const [loading, setLoading] = useState(true);
   const [allGroups, setAllGroups] =useState([]);
   const [allTopics, setAllTopics] =useState([]);
@@ -51,6 +52,7 @@ function App() {
     const jwt = localStorage.getItem('token');
     createCurrentUser();
     setToken(jwt)
+    getUsers();
     getAllGroups();
     getAllTopics();
     getPosts();
@@ -88,6 +90,15 @@ function App() {
     }
     
   };
+  const getUsers = async () => {
+    let response = await axios.get("https://localhost:44394/api/user")
+    if(response.data.length !== 0){
+      setUsers(response.data)
+      console.log(response.data)
+    }
+    
+  };
+
 
   const selectGroup = async (group) => {
     let response = await axios.get(

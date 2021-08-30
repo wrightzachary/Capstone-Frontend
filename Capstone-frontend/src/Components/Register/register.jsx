@@ -5,15 +5,15 @@ import { Col, Container, Row } from 'react-bootstrap';
 
 const Register = () => {
     const initialUserInfo = {
-        firstname: "",
-        lastname: "",
-        username: "",
-        email: "",
-        password: "",
-        branchServed: "",
-        currentLocation: "",
-        dutyStation: "",
-        unit: "",
+        FirstName: "",
+        LastName: "",
+        UserName: "",
+        Email: "",
+        Password: "",
+        BranchServed: "",
+        CurrentLocation: "",
+        DutyStation: "",
+        Unit: "",
     }
     const [eachEntry, setEachEntry] = useState(initialUserInfo)
 
@@ -41,20 +41,22 @@ const Register = () => {
             <Col sm={4}></Col>
             <Col sm={4}>
                 <div>
-                    <h1>Signup</h1>
+                    <h1>Register</h1>
                         <form onSubmit={handleSubmit}>
-                        <input name="firstname" placeholder="First name..." onChange={handleChange}></input>
-                        <input  name="lastname" placeholder="Last name..." onChange={handleChange}></input>
-                        <input  name="username" placeholder="Username..." onChange={handleChange}></input>
-                        <input  name="email" placeholder="Email..." onChange={handleChange}></input>
-                        <input  name="password" placeholder="Password..." onChange={handleChange}></input>
-                        <input  name="dutyStation" placeholder="Duty station served at..." onChange={handleChange}></input>
-                        <input  name="unit" placeholder=" Unit where you served..." onChange={handleChange}></input>
-                        <input  name="branchServed" placeholder="Branch served..." onChange={handleChange}></input>
-                        <input  name="currentLocation" placeholder="Current location?" onChange={handleChange}></input>
-                        <button style={{backgroundColor: "crimson", borderColor: "crimson"}} className="mt-2 mb-2">Sign Up</button>
-                    </form>
-                    </div>
+                            <input name="FirstName" placeholder="First name..." onChange={handleChange}></input>
+                            <input  name="LastName" placeholder="Last name..." onChange={handleChange}></input>
+                            <input  name="UserName" placeholder="Username..." onChange={handleChange}></input>
+                            <input  name="Email" placeholder="Email..." onChange={handleChange}></input>
+                            <input  name="Password" placeholder="Password..." onChange={handleChange}></input>
+                            <input  name="BranchServed" placeholder="Branch served..." onChange={handleChange}></input>
+                            <input  name="CurrentLocation" placeholder="Current location?" onChange={handleChange}></input>
+                            <input  name="DutyStation" placeholder="Duty station served at..." onChange={handleChange}></input>
+                            <input  name="Unit" placeholder=" Unit where you served..." onChange={handleChange}></input>
+                            <br></br>
+                            <button style={{backgroundColor: "crimson", borderColor: "crimson", color: "white"}} className="mt-2 mb-2">Register</button>
+                        </form>
+
+                        </div>
                 </Col>
                 <Col sm={4}></Col>
             </Row>
