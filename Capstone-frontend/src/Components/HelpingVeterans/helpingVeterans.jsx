@@ -1,15 +1,18 @@
 import React from 'react';
 import { Col, Container, Row, InputGroup, Card } from "react-bootstrap";
+import Footer from '../Footer/footer';
+
 
 const HelpingVeterans = () => {
     return ( 
         <React.Fragment>
             <Container>
             <Row>
-                <Col sm={4}></Col>
                 <Col sm={8}></Col>
+                <Col sm={4}></Col>
             </Row>
-            </Container><Container fluid>
+            </Container>
+            <Container fluid>
                 <Row className="d-flex justify-content-center">
                         <Card
                         className="card-container border border-primary "
@@ -37,7 +40,9 @@ const HelpingVeterans = () => {
                         </Card.Body>
                     </Card>
                 </Row>
+                <Col sm={4}></Col>
             </Container>
+            <Footer />
         </React.Fragment>
      );
 }

@@ -61,7 +61,7 @@ const CommentForm = (props) => {
                             aria-label="comments"
                             aria-describedby="basic-addon2"
                             />
-                            <Button style={{backgroundColor: "crimson", borderColor: "crimson"}} type="submit"> Submit </Button>
+                            <Button style={{backgroundColor: "red", borderColor: "crimson"}} type="submit"> Submit </Button>
                         </InputGroup>
                     </Form>
                 </Row>

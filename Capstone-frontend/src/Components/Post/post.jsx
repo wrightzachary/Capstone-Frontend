@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import axios from 'axios';
 import ConnectNavigationBar from '../Connect/connectNavBar';
 import { Container, Row, Col, Button, Form } from 'react-bootstrap';
+import './post.css';
 
 const Post = (props) => {
     let token = props.token;
@@ -52,11 +53,10 @@ const Post = (props) => {
     return ( 
         <React.Fragment>
         <ConnectNavigationBar />
+        <div className="makePost">
         <Container>
             <Row>
-                <Col sm={8}>
-                <h1 className="title mb-3">Make A Post</h1>
-                </Col>
+                <Col sm={8}></Col>
                 <Col sm={4}></Col>
             </Row>
         </Container>
@@ -64,21 +64,21 @@ const Post = (props) => {
             <Row>
                 <Col sm={4}></Col>
                 <Col sm={4}>
+                <h1 className="title mb-3">Make A Post</h1>
                 <Form onSubmit={handleSubmit}>
                     <div>
-                        <h5 className="title"> Post</h5>
                         <input className=" form-control" onChange={handleChange}  name="PostContext" placeholder="Please enter your post..."></input>
                     </div>
                     <div>
-                        <h5 className="title">Date</h5>
                         <input className=" form-control" onChange={handleChange} name="DateCreated" placeholder ="Please eneter date in format of YYYMMDD"></input>
                     </div>
-                    <Button style={{backgroundColor: "crimson", borderColor: "crimson"}} className="mt-2 mb-2" type="submit">Submit Post</Button>
+                    <Button style={{backgroundColor: "red", borderColor: "white"}} className="mt-2 mb-2" type="submit">Submit Post</Button>
                     </Form>
                 </Col>
                 <Col sm={4}></Col>
             </Row>
         </Container>
+        </div>
         </React.Fragment>
      );
 }

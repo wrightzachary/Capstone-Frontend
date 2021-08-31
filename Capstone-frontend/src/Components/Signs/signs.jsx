@@ -1,5 +1,6 @@
 import React from 'react'; 
 import { Col, Container, Row, InputGroup, Card } from "react-bootstrap";
+import Footer from '../Footer/footer';
 
 
 const Signs = () => {
@@ -40,6 +41,7 @@ const Signs = () => {
                     </Card>
                 </Row>
             </Container>
+            <Footer />
         </React.Fragment>
      );
 }

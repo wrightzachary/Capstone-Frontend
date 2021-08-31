@@ -2,6 +2,8 @@ import React from 'react';
 import MentalIllenesDropdown from './mentalIllnessDropdown';
 import { Col, Container, Row, InputGroup, Card } from "react-bootstrap";
 import './mentalIllness.css';
+import Footer from '../Footer/footer';
+
 
 const Anxiety = () => {
     return ( 
@@ -39,6 +41,7 @@ const Anxiety = () => {
                     </Card>
                 </Row>
             </Container>
+            <Footer />
         </React.Fragment>
      );
 }

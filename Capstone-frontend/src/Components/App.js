@@ -4,7 +4,6 @@ import './App.css';
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 import NavigationBar from './Navigation/navigation';
 import Home from './Home/home';
-import Footer from './Footer/footer';
 import Helpline from './Helpline/helpline';
 import MentalIllness from './MentalIllness/mentalIllnessHome';
 import Anxiety from './MentalIllness/anxiety';
@@ -152,7 +151,6 @@ function App() {
         </Switch>
         } 
       </Router>
-      <Footer />
   </React.Fragment>
   
   );

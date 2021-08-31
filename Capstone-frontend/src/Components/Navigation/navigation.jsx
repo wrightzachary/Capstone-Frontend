@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom';
 const NavigationBar = () => {
   return (
       <React.Fragment>
-          <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
+          <Navbar collapseOnSelect expand="lg" bg="dark" variant="secondary">
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                 <Navbar.Collapse id="responsive-navbar-nav">
                 <Nav className="me-auto">

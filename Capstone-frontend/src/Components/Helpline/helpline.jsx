@@ -1,6 +1,8 @@
 import React from 'react';
 import './helpline.css';
 import { Col, Container, Row, InputGroup, Card } from "react-bootstrap";
+import Footer from '../Footer/footer';
+
 
 const Helpline = () => {
     var link = <a href="https://www.va.gov">https://www.va.gov </a>
@@ -31,6 +33,7 @@ const Helpline = () => {
                     </Card>
                 </Row>
             </Container>
+            <Footer />
         </React.Fragment>
     )
 }

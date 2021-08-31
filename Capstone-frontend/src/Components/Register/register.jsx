@@ -1,6 +1,7 @@
 import React, {useState} from 'react';  
 import axios from 'axios';
 import { Col, Container, Row } from 'react-bootstrap';
+import './register.css';
 
 
 const Register = () => {
@@ -40,23 +41,30 @@ const Register = () => {
             <Row>
             <Col sm={4}></Col>
             <Col sm={4}>
-                <div>
+                <div className="register">
                     <h1>Register</h1>
                         <form onSubmit={handleSubmit}>
                             <input name="FirstName" placeholder="First name..." onChange={handleChange}></input>
+                            <br></br>
                             <input  name="LastName" placeholder="Last name..." onChange={handleChange}></input>
+                            <br></br>
                             <input  name="UserName" placeholder="Username..." onChange={handleChange}></input>
+                            <br></br>
                             <input  name="Email" placeholder="Email..." onChange={handleChange}></input>
+                            <br></br>
                             <input  name="Password" placeholder="Password..." onChange={handleChange}></input>
+                            <br></br>
                             <input  name="BranchServed" placeholder="Branch served..." onChange={handleChange}></input>
+                            <br></br>
                             <input  name="CurrentLocation" placeholder="Current location?" onChange={handleChange}></input>
+                            <br></br>
                             <input  name="DutyStation" placeholder="Duty station served at..." onChange={handleChange}></input>
+                            <br></br>
                             <input  name="Unit" placeholder=" Unit where you served..." onChange={handleChange}></input>
                             <br></br>
-                            <button style={{backgroundColor: "crimson", borderColor: "crimson", color: "white"}} className="mt-2 mb-2">Register</button>
+                            <button style={{backgroundColor: "red", borderColor: "white", color: "white"}} className="mt-2 mb-2">Register</button>
                         </form>
-
-                        </div>
+                    </div>
                 </Col>
                 <Col sm={4}></Col>
             </Row>

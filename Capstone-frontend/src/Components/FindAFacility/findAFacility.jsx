@@ -5,6 +5,7 @@ import PlacesAutocomplete, {
   getLatLng,
 } from 'react-places-autocomplete';
 import './findAFacility.css';
+import Footer from '../Footer/footer';
 
 const style = {
     width: '40%',
@@ -113,6 +114,7 @@ export class MapContainer extends Component {
         </Map>
         </div>
       </div>
+      <Footer />
       </React.Fragment>
     )
   }

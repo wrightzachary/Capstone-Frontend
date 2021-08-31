@@ -1,4 +1,5 @@
 body {
     background-image: url(./images/homeBackground.jpg);
-    color: white;
+    background-size: 1260px 800px;
+    margin-top: 15%;
 }

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import {Bar} from 'react-chartjs-2';
 import './statistics.css';
+import Footer from '../Footer/footer';
 
 
 class Chart extends Component {
@@ -70,7 +71,7 @@ class Chart extends Component {
                     }}
                 />
             </div>
-
+            <Footer />
             </React.Fragment>
           
          );

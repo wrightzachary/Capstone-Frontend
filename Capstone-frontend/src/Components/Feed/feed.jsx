@@ -2,6 +2,7 @@ import React from 'react';
 import { Container, Row, Card, Col, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import ConnectNavigationBar from '../Connect/connectNavBar';
+import './feed.css';
 
 const ShowAllPosts = (props) => {
   const {posts, selectPost} = props;
@@ -14,7 +15,7 @@ const ShowAllPosts = (props) => {
             <Row>
                 <Col sm={8}>
                   <div className="feed">
-                    <h1>{currentUser.user.username}'s News Feed</h1>
+                    
                   </div>
                 </Col>
             </Row>
@@ -23,6 +24,9 @@ const ShowAllPosts = (props) => {
             <Row>
                 <Col sm={4}></Col>
                 <Col sm={4}>
+            <div className="feed">
+                <h1>Welcome, {currentUser.user.username}!</h1>
+            </div>
                     {posts.map((post) =>{
                         return (
                             <Card
@@ -36,8 +40,8 @@ const ShowAllPosts = (props) => {
                               <Link to="/viewPost">
                               <Button
                                   style={{
-                                    backgroundColor: "crimson",
-                                    borderColor: "crimson",
+                                    backgroundColor: "red",
+                                    borderColor: "blue",
                                   }}
                                   onClick={() =>  selectPost(post)}>View Post </Button> 
                               </Link>

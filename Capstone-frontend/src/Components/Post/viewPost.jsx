@@ -2,6 +2,7 @@ import React from "react";
 import { Col, Container, Row, InputGroup, Card } from "react-bootstrap";
 import ConnectNavigationBar from "../Connect/connectNavBar";
 import CommentForm from "../Comment/comment";
+import './post.css';
 
 const ViewPost = (props) => {
     const {postContext, dateCreated} = props.currentPost;
@@ -19,7 +20,7 @@ const ViewPost = (props) => {
                 <Row className="d-flex justify-content-center">
                         <Card
                         className="card-container border border-primary "
-                        style={{ width: "18rem", margin: "1rem" }}
+                        style={{ width: "55rem", margin: "1rem" }}
                         >
                         <Card.Body className="text-center">
                             <Card.Text><h6>{dateCreated}</h6></Card.Text>
@@ -30,6 +31,9 @@ const ViewPost = (props) => {
                     </Card>
                 </Row>
                 <Row className="d-flex justify-content-center">
+                  <div className="comments">
+                  <h1>Comments</h1>
+                  </div>
                 {postComments.map((comment) =>{
                         return (
                             <Card
