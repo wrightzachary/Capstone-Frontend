@@ -1,6 +1,6 @@
 import React from 'react';
 import './helpline.css';
-import { Col, Container, Row, InputGroup, Card } from "react-bootstrap";
+import { Col, Container, Row, Card } from "react-bootstrap";
 import Footer from '../Footer/footer';
 
 

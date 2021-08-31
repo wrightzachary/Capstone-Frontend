@@ -6,7 +6,6 @@ import './feed.css';
 
 const ShowAllPosts = (props) => {
   const {posts, selectPost} = props;
-  const {postContext, dateCreated} = props.currentPost;
   const {currentUser} = props;
   return ( 
         <React.Fragment>

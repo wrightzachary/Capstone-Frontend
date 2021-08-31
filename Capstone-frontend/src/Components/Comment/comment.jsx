@@ -1,9 +1,9 @@
 import React, {useState} from 'react';
-import { Container, Row, Col, Button, Form, FormControl, InputGroup } from 'react-bootstrap';
+import { Container, Row, Button, Form, FormControl, InputGroup } from 'react-bootstrap';
 import axios from 'axios';
 
 const CommentForm = (props) => {
-    const { currentUser, comments, currentPost} = props;
+    const { comments, currentPost} = props;
     const token = props.token;
     const getComments = props.getComments;
     const currentPostId = currentPost.postId;

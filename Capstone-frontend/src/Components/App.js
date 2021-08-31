@@ -24,16 +24,15 @@ import jwtDecode from 'jwt-decode';
 import Post from './Post/post';
 import ShowAllPosts from './Feed/feed';
 import ViewPost from './Post/viewPost';
-import { get } from 'react-hook-form';
 
 function App() {
   const [currentUser, setCurrentUser] = useState();
-  const [users, setUsers] = useState([]);
+  // const [users, setUsers] = useState([]);
   const [loading, setLoading] = useState(true);
   const [token, setToken] = useState();
   const [posts, setPosts] =useState([]);
   const [currentPost, setCurrentPost] = useState([]);
-  const [comments, setComments] = useState([]);
+  // const [comments, setComments] = useState([]);
   const [postComments, setPostComments] = useState([]);
 
 
@@ -73,7 +72,7 @@ function App() {
   const getUsers = async () => {
     let response = await axios.get("https://localhost:44394/api/user")
     if(response.data.length !== 0){
-      setUsers(response.data)
+      // setUsers(response.data)
       console.log(response.data)
     }
     
@@ -102,7 +101,7 @@ function App() {
   const getComments = async () => {
     let response = await axios.get("https://localhost:44394/api/comment")
     if(response.data.length !== 0){
-      setComments(response.data)
+      // setComments(response.data)
       console.log(response.data)
     }
   };

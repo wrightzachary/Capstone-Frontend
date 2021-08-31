@@ -34,7 +34,6 @@ const LoginForm = (props) => {
           console.log(error)
         }
     })
-    
   }
     
     

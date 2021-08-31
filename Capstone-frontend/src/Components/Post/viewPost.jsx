@@ -1,12 +1,12 @@
 import React from "react";
-import { Col, Container, Row, InputGroup, Card } from "react-bootstrap";
+import { Col, Container, Row, Card } from "react-bootstrap";
 import ConnectNavigationBar from "../Connect/connectNavBar";
 import CommentForm from "../Comment/comment";
 import './post.css';
 
 const ViewPost = (props) => {
     const {postContext, dateCreated} = props.currentPost;
-    const {posts, user, postComments, currentUser, currentPost} = props;
+    const {postComments, currentUser, currentPost} = props;
   return (
     <React.Fragment>
         <ConnectNavigationBar />
