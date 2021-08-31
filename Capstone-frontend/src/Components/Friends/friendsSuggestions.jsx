@@ -1,15 +1,44 @@
-import React from 'react';
-import { Container, Row, Col, Button, Form, Card } from 'react-bootstrap';
+import React, {useState} from 'react';
+import { useEffect } from 'react';
+import { Container, Row, Col, Button, Card } from 'react-bootstrap';
 import './friends.css';
 
 
 
 
-function FriendSuggestions(){
-    const people = ["Quinton Glatt", "Jonathan Moon", "Cameron Vaughn", "Michael Lesley"]
+function FriendSuggestions(props){
+  const [suggestedFriends, setSuggestedFriends] = useState([]);
+  const {currentUser} = props;
+  const {users} = props
+    console.log(users);
+    console.log(currentUser)
+  useEffect(() =>{
+    getCurrentUserData();
+  },[users])
+  
 
+  const getCurrentUserData = () => {
+      const userData = users.filter((user) =>
+        user.id.includes(currentUser.user.id)
+      )
+      getSuggestedFriends(userData[0]);
+      console.log(userData)
+    
+}
+  const getSuggestedFriends = (userData) =>{
+    let friends = users.filter((user) => {
+        if (user.branchServed === userData.branchServed || user.currentLocation === userData.currentLocation 
+            || user.unit === userData.unit || user.dutyStation === userData.dutyStation ) {
+          return true
+        }    
+      }
+      )
+      setSuggestedFriends(friends)
+      console.log(friends) 
+      console.log(users)
 
-    return ( 
+  }
+  return ( 
         <React.Fragment>
             <Container>
                 <Row>
@@ -24,13 +53,13 @@ function FriendSuggestions(){
                     <div className="suggested">
                         <h1>Suggested Friends</h1>
                     </div>
-                    {people.filter(name => name.includes('t')).map(filteredNames => (
+                    {suggestedFriends.map(user => (
                     <Card
                         className="card-container border border-primary "
                         style={{ display:"flex", width: "21rem", margin: "0rem" }}
                     >
                     <Card.Body className="text-center">
-                        <Card.Text>{filteredNames}</Card.Text>
+                        <Card.Text>{user.firstName}</Card.Text>
                     </Card.Body>
                     <Button style={{backgroundColor: "red", borderColor: "white"}} className="mt-2 mb-2" type="submit">Connect</Button>
                     </Card>

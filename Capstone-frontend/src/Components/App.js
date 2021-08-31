@@ -28,7 +28,7 @@ import Friends from './Friends/friends';
 
 function App() {
   const [currentUser, setCurrentUser] = useState();
-  // const [users, setUsers] = useState([]);
+  const [users, setUsers] = useState([]);
   const [loading, setLoading] = useState(true);
   const [token, setToken] = useState();
   const [posts, setPosts] =useState([]);
@@ -73,7 +73,7 @@ function App() {
   const getUsers = async () => {
     let response = await axios.get("https://localhost:44394/api/user")
     if(response.data.length !== 0){
-      // setUsers(response.data)
+      setUsers(response.data)
       console.log(response.data)
     }
     
@@ -114,7 +114,7 @@ function App() {
     setPostComments(response.data);
     console.log(response.data)
   };
-
+  console.log(users)
   return (
     <React.Fragment>
       <NavigationBar />
@@ -142,7 +142,7 @@ function App() {
           <Route path="/post"  render={props => <Post {...props}  currentUser={currentUser} currentToken={token} />} /> 
           <Route path="/feed"  render={props => <ShowAllPosts {...props}  posts={posts} selectPost={selectPost} currentUser={currentUser} currentPost={currentPost} />} /> 
           <Route path="/viewPost"  render={props => <ViewPost {...props} currentUser={currentUser} currentPost={currentPost} getComments={getComments} postComments={postComments} />} /> 
-          <Route path="/friends" exact render={props => <Friends {...props} />} /> 
+          <Route path="/friends" exact render={props => <Friends {...props} users={users} currentUser={currentUser} />} /> 
         </Switch>
         } 
       </Router>

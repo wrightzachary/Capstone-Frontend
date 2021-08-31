@@ -3,10 +3,12 @@ import { Container, Row, Card, Col, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import ConnectNavigationBar from '../Connect/connectNavBar';
 import './feed.css';
+import {FaThumbsUp} from 'react-icons/fa';
 
 const ShowAllPosts = (props) => {
   const {posts, selectPost} = props;
   const {currentUser} = props;
+
   return ( 
         <React.Fragment>
             <ConnectNavigationBar />
@@ -45,6 +47,9 @@ const ShowAllPosts = (props) => {
                                   onClick={() =>  selectPost(post)}>View Post </Button> 
                               </Link>
                             </Card.Body>
+                            <div className="like">
+                            <FaThumbsUp />
+                            </div>
                           </Card>
                         )
                     })}

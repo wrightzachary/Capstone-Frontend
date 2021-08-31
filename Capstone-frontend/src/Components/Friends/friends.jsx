@@ -3,7 +3,7 @@ import FriendSuggestions from './friendsSuggestions';
 import ConnectNavigationBar from '../Connect/connectNavBar';
 import { Container, Row, Col, Button, Form, Card } from 'react-bootstrap';
 
-function Friends() {
+function Friends({users, currentUser}) {
     const friends = ["Zidan Hunter", "Iwan Hess", "Cameron Ridley", "Zak Villarreal"]
 
     return ( 
@@ -36,7 +36,7 @@ function Friends() {
                         <Col sm={4}></Col>
                     </Row>
                 </Container>
-            <FriendSuggestions />
+            <FriendSuggestions users={users} currentUser={currentUser}/>
         </React.Fragment>
      );
 }
