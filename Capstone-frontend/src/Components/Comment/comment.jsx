@@ -25,6 +25,7 @@ const CommentForm = (props) => {
         event.preventDefault();
         submitComment();
         console.log(comments)
+        window.location.href="/feed"
     }
     const submitComment = async () => {
         let postData = eachEntry
