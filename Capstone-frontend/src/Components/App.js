@@ -24,6 +24,7 @@ import jwtDecode from 'jwt-decode';
 import Post from './Post/post';
 import ShowAllPosts from './Feed/feed';
 import ViewPost from './Post/viewPost';
+import Friends from './Friends/friends';
 
 function App() {
   const [currentUser, setCurrentUser] = useState();
@@ -139,14 +140,9 @@ function App() {
           <Route path="/Login"  exact render={props => <LoginForm {...props}   setUserToken={setUserToken}  />} />
           <Route path="/register" exact render={props => <Register {...props} />} />
           <Route path="/post"  render={props => <Post {...props}  currentUser={currentUser} currentToken={token} />} /> 
-          <Route path="/feed"  render={props => <ShowAllPosts {...props}  posts={posts} selectPost={selectPost} currentUser={currentUser}
-          currentPost={currentPost} />} /> 
-          <Route path="/viewPost"  render={props => <ViewPost {...props} 
-          currentUser={currentUser}
-          currentPost={currentPost}
-           getComments={getComments}
-            postComments={postComments}
-             />} /> 
+          <Route path="/feed"  render={props => <ShowAllPosts {...props}  posts={posts} selectPost={selectPost} currentUser={currentUser} currentPost={currentPost} />} /> 
+          <Route path="/viewPost"  render={props => <ViewPost {...props} currentUser={currentUser} currentPost={currentPost} getComments={getComments} postComments={postComments} />} /> 
+          <Route path="/friends" exact render={props => <Friends {...props} />} /> 
         </Switch>
         } 
       </Router>
