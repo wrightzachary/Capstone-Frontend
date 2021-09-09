@@ -51,12 +51,12 @@ function FriendSuggestions(props){
                     <Col sm={4}></Col>
                     <Col sm={4}>
                     <div className="suggested">
-                        <h1>Suggested Friends</h1>
+                        <h1>Suggested</h1>
                     </div>
                     {suggestedFriends.map(user => (
                     <Card
                         className="card-container border border-primary "
-                        style={{ display:"flex", width: "21rem", margin: "0rem" }}
+                        style={{ display:"flex", width: "21rem", margin: "1rem" }}
                     >
                     <Card.Body className="text-center">
                         <Card.Text>{user.firstName}</Card.Text>

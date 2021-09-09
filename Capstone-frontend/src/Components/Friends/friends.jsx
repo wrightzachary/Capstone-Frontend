@@ -25,7 +25,7 @@ function Friends({users, currentUser}) {
                             {friends.map((friendsList) => (
                             <Card
                                 className="card-container border border-primary "
-                                style={{ display:"flex", width: "21rem", margin: "0rem" }}
+                                style={{ display:"flex", width: "21rem", margin: "1rem" }}
                             >
                             <Card.Body className="text-center">
                                 <Card.Text>{friendsList}</Card.Text>
@@ -33,10 +33,10 @@ function Friends({users, currentUser}) {
                             </Card>
                             ))}
                         </Col>
-                        <Col sm={4}></Col>
+                        <Col sm={4}><FriendSuggestions users={users} currentUser={currentUser}/></Col>
                     </Row>
                 </Container>
-            <FriendSuggestions users={users} currentUser={currentUser}/>
+            
         </React.Fragment>
      );
 }

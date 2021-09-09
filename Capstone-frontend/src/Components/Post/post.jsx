@@ -69,6 +69,7 @@ const Post = (props) => {
                     <div>
                         <input className=" form-control" onChange={handleChange}  name="PostContext" placeholder="Please enter your post..."></input>
                     </div>
+                    <br></br>
                     <div>
                         <input className=" form-control" onChange={handleChange} name="DateCreated" placeholder ="Please eneter date in format of YYYMMDD"></input>
                     </div>

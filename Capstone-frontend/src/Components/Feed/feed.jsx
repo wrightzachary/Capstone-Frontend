@@ -31,7 +31,7 @@ const ShowAllPosts = (props) => {
                         return (
                             <Card
                             className="card-container border border-primary "
-                            style={{ display:"flex", width: "40rem", margin: "0rem" }}
+                            style={{ display:"flex", width: "40rem", margin: "1rem" }}
                           >
                             <Card.Body className="text-center">
                             <Card.Text><h1>{post.user}</h1></Card.Text>
