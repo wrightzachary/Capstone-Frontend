@@ -23,7 +23,7 @@ const LoginForm = (props) => {
   
   const logIn = async () => {
     let userData = logInInfo;
-    await axios.post("https://localhost:44394/api/authentication/login", userData) .then((response) => {
+    await axios.post("https://localhost:44394/api/authentication/login", userData).then((response) => {
     if (response.data.length !== 0){
       props.setUserToken(response.data.token)
         console.log("hello");
@@ -35,7 +35,6 @@ const LoginForm = (props) => {
         }
     })
   }
-    
     
     return ( 
       <Container >

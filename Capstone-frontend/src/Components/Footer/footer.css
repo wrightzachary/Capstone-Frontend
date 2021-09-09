@@ -1,11 +1,12 @@
 .footer{
     text-align: center;
     font-size: 30px;
-    font-style: oblique;
-    color: white;
+    /* font-style: oblique; */
+    font-variant: small-caps;
+    color: grey;
     margin-top: 1rem;
     padding: 1rem;
-    background-color: darkred ;
+    background-color: white ;
     position: fixed;
     bottom: 0;
     left: 0;

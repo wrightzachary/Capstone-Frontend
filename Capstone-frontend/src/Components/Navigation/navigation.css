@@ -1,0 +1,12 @@
+.nav-color {
+    background-color:white;
+    font-size: 20px;
+    font-variant:small-caps;
+    color: violet;
+}
+
+.customNavLink:hover {
+    padding-bottom: 1px ;
+    border-bottom: 3px  solid red ;
+    bottom: -3px ;
+}

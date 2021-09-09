@@ -1,7 +1,12 @@
 .feed {
     color: white;
+    scroll-behavior: auto;
 }
 
 .like {
     margin-left: 50%;
+}
+body {
+    overflow: auto;
+    margin-bottom: 5%;
 }

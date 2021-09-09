@@ -1,5 +1,4 @@
 import React from 'react';
-import './helpline.css';
 import { Col, Container, Row, Card } from "react-bootstrap";
 import Footer from '../Footer/footer';
 
@@ -13,11 +12,14 @@ const Helpline = () => {
                 <Col sm={4}></Col>
                 <Col sm={8}></Col>
             </Row>
-            </Container><Container fluid>
+            </Container>
+        
+            <Container fluid>
+                <div className="help">
                 <Row className="d-flex justify-content-center">
                         <Card
                         className="card-container border border-primary "
-                        style={{ width: "35rem", margin: "1rem" }}
+                        style={{ width: "35rem", margin: "10rem" }}
                         >
                         <Card.Body>
                             <Card.Text><h1> Crisis Hotline Number:</h1></Card.Text>
@@ -32,6 +34,7 @@ const Helpline = () => {
                         </Card.Body>
                     </Card>
                 </Row>
+                </div>
             </Container>
             <Footer />
         </React.Fragment>
