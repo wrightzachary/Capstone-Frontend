@@ -101,7 +101,7 @@ To get a local copy up and running follow these simple steps.
    
    `npm i`
    
-3. npm start in both the client and server folder.
+3. npm start in src folder.
 4. Give it a moment and the project will start up.
 5. In the mean-time, go to the ASP.NET Core Entity Framework backend that I built for this project by following this link: <a href="https://github.com/wrightzachary/Capstone-Backend">;IGY6 Backend</a>
 6. Open up the sln file inside of the backend repo that you just downloaded.
